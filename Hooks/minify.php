@@ -32,7 +32,7 @@ class Minify
 	    $CI =& get_instance();
 	    $buffer = $CI->output->get_output();
 
-	    $re = '%(?>[^\S ]\s* | \s{2,})(?=[^<]*+(?:<(?!/?(?:textarea|pre|script)\b)[^<]*+)*+(?:<(?>textarea|pre|script)\b|\z))%Six';
+		$re = '%(?>[^\S ]\s* | \s{2,})(?=[^<]*+(?:<(?!(?:textarea|pre|script)\b)[^<]*+)*+(?:<(?>textarea|pre|script)\b|\z))%Six';
 
 		/*------------------
 		%				 Collapse whitespace everywhere but in blacklisted elements.
@@ -44,7 +44,7 @@ class Minify
 		  [^<]*+         Either zero or more non-"<" {normal*}
 		  (?:            Begin {(special normal*)*} construct
 		    <            or a < starting a non-blacklist tag.
-		    (?!/?(?:textarea|pre|script)\b)
+		    (?!(?:textarea|pre|script)\b)
 		    [^<]*+       more non-"<" {normal*}
 		  )*+            Finish "unrolling-the-loop"
 		  (?:            Begin alternation group.
