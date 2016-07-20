@@ -2,10 +2,22 @@
  
 class Minify 
 {
-	public function __construct(){
+	public function __construct()
+	{
 	}
 
-	public function html(){
+ 	/**
+	* 
+	* Check if the proeject is in production or in development. 
+	* In production code html is compreessed, in development code is not compressed;
+	*
+	* @access	public
+	*
+	* @return	bool
+	*
+	**/
+	public function html()
+	{
 		if (ENVIRONMENT !== 'production'){
 			$this->notCompress();
 			return;
@@ -56,18 +68,13 @@ class Minify
 	    $CI->output->_display();
 	}
 
-
-	private function removeComments($buffer){
-
-		$re = '(<!--.*?-->)';
+	private function removeComments($buffer)
+	{
 		/*------------------
 		<!--.*?-->		Remove all characters inside the code "<!-- -->", but not provide resource to line break;
 		------------------*/
-		return preg_replace($re, " ", $buffer);
-
+		return preg_replace('(<!--.*?-->)', " ", $buffer);
 	}
-
-
 
 	private function notCompress()
 	{
