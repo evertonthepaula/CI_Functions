@@ -2,10 +2,6 @@
  
 class Minify 
 {
-	public function __construct()
-	{
-	}
-
  	/**
 	* 
 	* Check if the proeject is in production or in development. 
@@ -13,17 +9,15 @@ class Minify
 	*
 	* @access	public
 	*
-	* @return	bool
+	* @return	document view
 	*
 	**/
 	public function html()
 	{
-		if (ENVIRONMENT !== 'production'){
-			$this->notCompress();
-			return;
-		}
-		$this->compress();
-		return;
+		if (ENVIRONMENT !== 'production') 
+			return $this->notCompress();
+
+		return $this->compress();
 	}
 
 	private function compress()
