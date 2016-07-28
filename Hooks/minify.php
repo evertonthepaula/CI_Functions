@@ -50,7 +50,7 @@ class Minify
 		%Six
 		------------------*/
 
-	    $new_buffer = $this->removeComments( preg_replace($re, " ", $buffer) );	    
+	    $new_buffer = $this->removeComments( preg_replace($re, '', $buffer) );	    
 
 	    // We are going to check if processing has working
 	    if ($new_buffer === null)
@@ -67,7 +67,7 @@ class Minify
 		/*------------------
 		<!--.*?-->		Remove all characters inside the code "<!-- -->", but not provide resource to line break;
 		------------------*/
-		return preg_replace('(<!--.*?-->)', " ", $buffer);
+		return preg_replace('(<!--.*?-->)', '', $buffer);
 	}
 
 	private function notCompress()
